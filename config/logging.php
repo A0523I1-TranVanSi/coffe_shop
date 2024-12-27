@@ -6,7 +6,7 @@ use Monolog\Handler\SyslogUdpHandler;
 use Monolog\Processor\PsrLogMessageProcessor;
 
 return [
-
+    
     /*
     |--------------------------------------------------------------------------
     | Default Log Channel
@@ -54,9 +54,11 @@ return [
 
         'stack' => [
             'driver' => 'stack',
-            'channels' => explode(',', env('LOG_STACK', 'single')),
+            'channels' => ['single', 'slack'],
             'ignore_exceptions' => false,
         ],
+
+        
 
         'single' => [
             'driver' => 'single',
